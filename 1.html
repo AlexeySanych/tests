@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computers(number) {
+            if(number >= 5 && number <= 20 || number % 10 >=5 && number % 10 <= 9 || number % 10 == 0 ) {
+                return number + " компьютеров";
+            } else if(number != 1 && number % 10 != 1) {
+                return number + " компьютера";
+            } else {
+                return number + " компьютер";
+            } 
+        }
+
+        console.log(computers(0));
+    </script>
+</body>
+</html>

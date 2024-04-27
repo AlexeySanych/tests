@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function multiplication(number) {
+            let arr = Array.from(Array(number), () => new Array(number));
+            let shift = 0;
+            for(let i = 0; i <number; i++ ) {
+                for(let j = shift; j < number; j++) {
+                    arr[i][j] = (i + 1) * (j + 1);
+                    if(j + 1 < number) {
+                        arr[j + 1][i] = (j + 2) * (i + 1);
+                    }   
+                }
+                shift++;
+            }
+            return arr;
+        }
+
+        function getTable(array) {
+            let table = '';
+            let number = array.length;
+            let widthDigit = (number * number).toString().length;
+            for(let i = 0; i <=number; i++) {
+                let spacing = '';
+                for(let j = 0; j <= number; j++) {
+                    if(i == 0 && j == 0) {
+                        spacing = number.toString().length - i.toString().length;
+                        table += ' '.repeat(spacing);
+                        continue;
+                    }
+                    if(i == 0 && j != 0) {
+                        spacing = widthDigit - j.toString().length;
+                        table += ' '.repeat(spacing + 1) + j;
+                        continue;
+                    }
+                    if(i != 0 && j == 0) {
+                        spacing = number.toString().length - i.toString().length;
+                        table += ' '.repeat(spacing) + i;
+                        continue;
+                    }
+                    if(j == 1) {
+                        spacing = number.toString().length - i.toString().length;
+                        table += ' '.repeat(spacing + 1) + i;
+                        continue;
+                    }
+                    let item = array[i-1][j-1];
+                    spacing = widthDigit - item.toString().length;
+                    table += ' '.repeat(spacing + 1) + item;
+                }
+                table += '\n';
+            }
+            return table
+        }
+
+        console.log(getTable(multiplication(11)));
+    </script>
+</body>
+</html>

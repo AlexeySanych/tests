@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrimeNumber(number) {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) return false;
+            }
+            return true;
+        }
+
+        function findPrimeNumbers(firstNumb, lastNumb) {
+            let primeNumbers = [];
+            for (let i = firstNumb; i <= lastNumb; i++) {
+                if(isPrimeNumber(i)) {
+                    primeNumbers.push(i);
+                }
+            }
+            return primeNumbers;
+        }
+
+        console.log(findPrimeNumbers(1, 10));
+    </script>
+</body>
+</html>
